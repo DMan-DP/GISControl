@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace GISControl
+namespace GISControl.View
 {
     public partial class MainWindow : Window
     {
