@@ -1,0 +1,218 @@
+﻿<Window x:Class="GISControl.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GISControl"
+        Background="{StaticResource SecondaryColor}"
+        Style="{StaticResource MainWindow}"
+        Width="960" Height="540" FontFamily="Roboto Medium">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="24"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="44" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+            <Image 
+                Name="MenuIcon"
+                Grid.Column="0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="0"
+                Width="32"
+                Height="32"
+                Source="../Resources/Image/header_icon.png"/>
+
+            <DockPanel x:Name="Menu" Grid.Column="1">
+                <Menu
+                    Width="Auto"
+                    DockPanel.Dock="Left"
+                    Background="Transparent"
+                    Margin="8 8 8 4"
+                    FontSize="14"
+                    Foreground="{StaticResource TextColor}" 
+                    FontFamily="Roboto">
+                    <MenuItem Header="Файл">
+                        <MenuItem Header="Создать проект" InputGestureText="Ctrl+N"/>
+                        <MenuItem Header="Выход" InputGestureText="Alt+F4"/>
+                    </MenuItem>
+                    <MenuItem Header="Правка"></MenuItem>
+                    <MenuItem Header="Вид"></MenuItem>
+                    <MenuItem Header="Справка">
+                    </MenuItem>
+                </Menu>
+                <TextBlock
+                    MouseLeftButtonDown="MoveWindow"
+                    DockPanel.Dock="Left"
+                    Padding="24 8 8 4"
+                    FontSize="14"
+                    Text="GIS Control" 
+                    FontFamily="Roboto Medium"
+                    />
+            </DockPanel>
+            <Button
+            x:Name="MinButton"
+            Grid.Column="2"
+            VerticalAlignment="Top"
+            Height="28"
+            WindowChrome.IsHitTestVisibleInChrome="True"
+            Style="{StaticResource TitleBarButton}"
+            Click="MinButtonClick">
+                <Grid MaxHeight="9" MaxWidth="9">
+                    <Path
+                    x:Name="MinButtonPath"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                    StrokeThickness="1"
+                    Stretch="None"
+                    RenderOptions.EdgeMode="Aliased"
+                    Data="M0,8 H8 M0,7 H8 M0,6 H8" />
+                </Grid>
+            </Button>
+            <Button
+            Grid.Column="3"
+            x:Name="MaxButton" 
+            VerticalAlignment="Top"
+            Height="28"
+            Style="{StaticResource TitleBarButton}"
+            WindowChrome.IsHitTestVisibleInChrome="True"
+            Click="MaxButtonClick">
+                <Grid MaxHeight="9" MaxWidth="9">
+                    <Path
+                    x:Name="PART_MaxButton_Path"
+                    Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                    StrokeThickness="1"
+                    Stretch="None"
+                    RenderOptions.EdgeMode="Aliased"
+                    Data="M0,0 H8 V8 H0 V0 M0,1 H8 M0,2 H8"/>
+                </Grid>
+            </Button>
+            <Button
+            Grid.Column="4"
+            x:Name="CloseButton"
+            VerticalAlignment="Top"
+            Height="28"
+            WindowChrome.IsHitTestVisibleInChrome="True"
+            Style="{StaticResource TitleBarButton}"
+            Click="CloseButtonClick">
+                <Grid MaxHeight="9" MaxWidth="9">
+                    <Path
+                    Stroke="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+                    StrokeThickness="1.5"
+                    Stretch="None"
+                    Data="M0,0 L8,8 M0,8 L8,0"/>
+                </Grid>
+            </Button>
+        </Grid>
+        <Grid Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" MinWidth="200" MaxWidth="400"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*" MaxHeight="320" />
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Row="0">
+
+                </Grid>
+
+                <Grid Row="1">
+                    <TextBlock Height="23" FontSize="18" Text="Слои" VerticalAlignment="Top"/>
+                    <Rectangle Height="1" VerticalAlignment="Top" Margin="0 23 0 0" Fill="{StaticResource SecondaryAccentColor}"/>
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                  Margin="0 24 0 0"
+                                  BorderBrush="{StaticResource SecondaryAccentColor}"
+                                  BorderThickness="1">
+                        <ListBox x:Name="ListBoxLayers"
+                                 Background="Transparent"
+                                 BorderBrush="Transparent"
+                                 BorderThickness="0"
+                                 Padding="0"
+                                 Margin="0,0,-8,0">
+                            <ListBoxItem Background="Transparent"
+                                         HorizontalContentAlignment="Stretch"
+                                         Padding="0">
+                                <StackPanel Margin="0"
+                                            Orientation="Vertical"
+                                            Height="Auto"
+                                            Width="Auto">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="56"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="32"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image x:Name="LayerPreviewImage"
+                                               Grid.Column="0"
+                                               Height="56"
+                                               Width="56"
+                                               HorizontalAlignment="Right"/>
+                                        <TextBlock Text="LayerName"
+                                                   Grid.Column="1"
+                                                   VerticalAlignment="Center"
+                                                   Margin="8,0"
+                                                   TextWrapping="Wrap"
+                                                   Foreground="{StaticResource TextColor}"
+                                                   DockPanel.Dock="Left"/>
+                                        <Button Height="24"
+                                                Width="24"
+                                                HorizontalAlignment="Left"
+                                                Grid.Column="2"
+                                                Style="{StaticResource LayerButton}"/>
+                                    </Grid>
+                                    <Rectangle Fill="{StaticResource SecondaryAccentColor}"
+                                               Height="1.5"/>
+                                </StackPanel>
+                            </ListBoxItem>
+                        </ListBox>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+            <GridSplitter ResizeDirection="Columns" Grid.Column="1"
+                          VerticalAlignment="Stretch" Width="4"
+                          Background="{StaticResource SecondaryAccentColor}" Opacity="0.5" 
+                          ResizeBehavior="PreviousAndNext"/>
+            <Grid Column="2"
+                  Background="{StaticResource SecondaryAccentColor}">
+                <ScrollViewer x:Name="ScrollViewer" 
+                              CanContentScroll="True"
+                              HorizontalScrollBarVisibility="Auto" 
+                              VerticalScrollBarVisibility="Auto"
+                              Style="{StaticResource ImageScrollViewer}">
+                    <Viewbox Name="ViewBox"
+                             MouseWheel="ImageWheelScrol"
+                             MouseMove="NavigatorMouseMove"
+                             MouseLeftButtonDown="NavigatorMouseLeftButtonDown"
+                             MouseLeftButtonUp="NavigarorLeftButtonUp">
+                        <Image x:Name="MainImage"
+                               Width="Auto"
+                               Height="400"/>
+                    </Viewbox>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+
+        <DockPanel Grid.Row="2">
+            <StatusBar
+                DockPanel.Dock="Bottom"
+                Height="24">
+                <TextBlock Margin="3,0,0,0">Ready</TextBlock>
+                <StatusBarItem HorizontalAlignment="Right">
+                    <ResizeGrip Opacity="0.5" />
+                </StatusBarItem>
+            </StatusBar>
+        </DockPanel>
+    </Grid>
+</Window>

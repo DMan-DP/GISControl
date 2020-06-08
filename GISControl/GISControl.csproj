@@ -4,18 +4,30 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model" />
-    <Folder Include="ViewModel" />
+    <None Remove="Resources\Image\header_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="View\MainWindow.xaml">
+    <Folder Include="Model" />
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FreeImage-dotnet-core" Version="4.3.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Image\header_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="View\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-
 </Project>
