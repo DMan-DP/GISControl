@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29920.165
+VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GISControl", "GISControl\GISControl.csproj", "{21CC7792-B5BB-44BF-A214-4021067412AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GISControl", "GISControl\GISControl.csproj", "{CEDA3405-8369-46AD-B2F0-E8645AB5D505}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{21CC7792-B5BB-44BF-A214-4021067412AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21CC7792-B5BB-44BF-A214-4021067412AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21CC7792-B5BB-44BF-A214-4021067412AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21CC7792-B5BB-44BF-A214-4021067412AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEDA3405-8369-46AD-B2F0-E8645AB5D505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEDA3405-8369-46AD-B2F0-E8645AB5D505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEDA3405-8369-46AD-B2F0-E8645AB5D505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEDA3405-8369-46AD-B2F0-E8645AB5D505}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0A258912-2E05-4EEA-878E-FA43D8D546CF}
+		SolutionGuid = {D71570FE-96F8-449B-9972-18FADE1B3FC5}
 	EndGlobalSection
 EndGlobal
