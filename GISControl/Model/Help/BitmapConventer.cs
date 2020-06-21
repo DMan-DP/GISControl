@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows;
 using System.Windows.Interop;
@@ -7,12 +8,12 @@ using System.Windows.Media.Imaging;
 
 namespace GISControl.Model.Help
 {
-    public class BitmapConventer
+    public static class BitmapConventer
     {
 		[System.Runtime.InteropServices.DllImport("gdi32.dll")]
 		public static extern bool DeleteObject(IntPtr hObject);
 
-		public static BitmapSource Bitmap2BitmapSource(Bitmap bitmap)
+		public static BitmapSource ToBitmapSource(Bitmap bitmap)
 		{
 			IntPtr hBitmap = bitmap.GetHbitmap();
 			BitmapSource retval;
@@ -33,7 +34,7 @@ namespace GISControl.Model.Help
 			return retval;
 		}
 
-		public static Bitmap BitmapImage2Bitmap(BitmapImage bitmapImage)
+		public static Bitmap ToBitmap(BitmapImage bitmapImage)
 		{
 			using (MemoryStream outStream = new MemoryStream())
 			{
@@ -45,5 +46,26 @@ namespace GISControl.Model.Help
 				return new Bitmap(bitmap);
 			}
 		}
+
+        public static BitmapImage ToBitmapImage(Bitmap bitmap, ImageFormat format = null)
+        {
+            BitmapImage bitmapImage = new BitmapImage();
+            using (MemoryStream stream = new MemoryStream())
+            {
+				if (format == null) format = ImageFormat.Png;
+                bitmap.Save(stream, format);
+                bitmapImage.BeginInit();
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.StreamSource = stream;
+                bitmapImage.EndInit();
+                bitmapImage.Freeze();
+            }
+            return bitmapImage;
+        }
+
+        public static WriteableBitmap ToWriteableBitmap(BitmapImage bitmapImage)
+        {
+			return new WriteableBitmap(bitmapImage);
+        }
     }
 }
