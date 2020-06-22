@@ -94,7 +94,7 @@ namespace GISControl.View
                 BandAButton.Content = "R";
                 BandAButton.Background = new SolidColorBrush(Color.FromRgb(218, 124, 124));
                 BandRButton.Content = "G";
-                BandGButton.Background = new SolidColorBrush(Color.FromRgb(145, 218, 124));
+                BandRButton.Background = new SolidColorBrush(Color.FromRgb(145, 218, 124));
                 BandGButton.Content = "B";
                 BandGButton.Background = new SolidColorBrush(Color.FromRgb(128, 124, 218));
                 CoeffName.Text = "a";
