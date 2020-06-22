@@ -36,13 +36,16 @@
                         <MenuItem Header="Гамма" Click="GammaImageCorrect"/>
                         <MenuItem Header="Инверсия" Click="InvertImageCorrect"/>
                     </MenuItem>
+                    <MenuItem Header="Синтез изображения">
+                        <MenuItem Header="Смешивание каналов" Click="CalcRGB"/>
+                    </MenuItem>
                     <MenuItem Header="Расчет вегетационных индексов">
-                        <MenuItem Header="NDVI"/>
-                        <MenuItem Header="IPVI"/>
-                        <MenuItem Header="SAVI"/>
-                        <MenuItem Header="MSAVI"/>
-                        <MenuItem Header="GEMI"/>
-                        <MenuItem Header="ARVI"/>
+                        <MenuItem Header="NDVI" Click="CalcNDVI"/>
+                        <MenuItem Header="IPVI" Click="CalcIPVI"/>
+                        <MenuItem Header="SAVI" Click="CalcSAVI"/>
+                        <MenuItem Header="MSAVI" Click="CalcMSAVI"/>
+                        <MenuItem Header="GEMI" Click="CalcGEMI"/>
+                        <MenuItem Header="ARVI" Click="CalcARVI"/>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Вид">

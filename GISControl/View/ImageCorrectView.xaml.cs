@@ -51,7 +51,7 @@ namespace GISControl.View
             }
             else
             {
-                MessageBox.Show("Произошла внуренняя ошибка. Код ошибки 2", "Ошибка", MessageBoxButton.OK,
+                MessageBox.Show("Произошла внуренняя ошибка", "Ошибка", MessageBoxButton.OK,
                     MessageBoxImage.Error);
                 this.Close();
             }

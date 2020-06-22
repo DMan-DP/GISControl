@@ -1,6 +1,9 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
+using GISControl.Model;
+using GISControl.Model.ColorPalette;
 using GISControl.Model.Correct;
+using GISControl.Model.Index;
 
 namespace GISControl.ViewModel
 {
@@ -11,6 +14,14 @@ namespace GISControl.ViewModel
             return await Task.Run(() =>
             {
                 return colorCorrect.Correct(image, value);
+            });
+        }
+
+        public static async Task<BitmapImage> SynthImageTask(SynthImage synthImage, Layer[] layers, Palette palette)
+        {
+            return await Task.Run(() =>
+            {
+                return synthImage.GetIndexImage(layers, palette);
             });
         }
     }

@@ -6,7 +6,10 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using GISControl.Model;
 using GISControl.Model.Correct;
+using GISControl.Model.Index;
+using GISControl.Model.SynthethisImage;
 using GISControl.View;
 using GISControl.ViewModel;
 using Microsoft.Win32;
@@ -155,6 +158,55 @@ namespace GISControl
             }
         }
 
+        #region Calculate Index
+
+        private void OpenSynthImageWindow(SynthImage synthImage)
+        {
+            SynthImageView window = new SynthImageView(synthImage);
+            var currenCount = ListBoxLayers.Items.Count;
+            window.ShowDialog();
+            if (ListBoxLayers.Items.Count != currenCount)
+            ListBoxLayers.SelectedIndex = LayerManager.instance.SelectImage;
+        }
+
+
+        private void CalcNDVI(object sender, RoutedEventArgs e)
+        {
+            OpenSynthImageWindow(new NDVI());
+        }
+
+        private void CalcIPVI(object sender, RoutedEventArgs e)
+        {
+            OpenSynthImageWindow(new IPVI());
+        }
+
+        private void CalcSAVI(object sender, RoutedEventArgs e)
+        {
+            OpenSynthImageWindow(new SAVI());
+        }
+
+        private void CalcMSAVI(object sender, RoutedEventArgs e)
+        {
+            OpenSynthImageWindow(new MSAVI()); ;
+        }
+
+        private void CalcGEMI(object sender, RoutedEventArgs e)
+        {
+            OpenSynthImageWindow(new GEMI());
+        }
+
+        private void CalcARVI(object sender, RoutedEventArgs e)
+        {
+            OpenSynthImageWindow(new ARVI());
+        }
+
+        private void CalcRGB(object sender, RoutedEventArgs e)
+        {
+            OpenSynthImageWindow(new BlendChanel());
+        }
+
+        #endregion
+
         #region Color Correct
 
         private void OpenImageCorrectWindow(ColorCorrect correct)
@@ -165,7 +217,10 @@ namespace GISControl
                 return;
             }
             ImageCorrectView window = new ImageCorrectView(LayerManager.instance.layers[LayerManager.instance.SelectImage], correct);
-            window.Show();
+            var currenCount = ListBoxLayers.Items.Count;
+            window.ShowDialog();
+            if (ListBoxLayers.Items.Count != currenCount)
+                ListBoxLayers.SelectedIndex = LayerManager.instance.SelectImage;
         }
 
         private void BrightnessImageCorrect(object sender, RoutedEventArgs e)
