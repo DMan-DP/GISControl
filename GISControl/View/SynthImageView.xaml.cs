@@ -8,6 +8,7 @@ using System.Windows.Media.Imaging;
 using GISControl.Model;
 using GISControl.Model.ColorPalette;
 using GISControl.Model.Index;
+using GISControl.Model.SynthethisImage;
 using GISControl.ViewModel;
 
 namespace GISControl.View
@@ -82,7 +83,7 @@ namespace GISControl.View
                 BandGButton.Background = new SolidColorBrush(Color.FromRgb(128, 124, 218));
                 CoeffName.Text = "a";
             }
-            else if (synthImage.GetType() == typeof(ColorBlend))
+            else if (synthImage.GetType() == typeof(BlendChanel))
             {
                 Title = "Смешивание каналов";
                 layers = new Layer[3] { null, null, null };
@@ -335,13 +336,7 @@ namespace GISControl.View
                 MessageBox.Show("Ошибка сохранения файла", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); return;
             }
 
-            string imageName = "";
-            if (synthImage.GetType() == typeof(NDVI))
-            {
-                imageName += "NDVI";
-            }
-
-            LayerManager.instance.AddLayer(image, imageName);
+            LayerManager.instance.AddLayer(image, synthImage.GetType().Name);
             GC.Collect();
             GC.WaitForPendingFinalizers();
             this.Close();
@@ -355,9 +350,9 @@ namespace GISControl.View
             }
             Microsoft.Win32.SaveFileDialog saveDialog = new Microsoft.Win32.SaveFileDialog();
 
-            saveDialog.Filter = "TIFF (*.tiff)|*.tiff|" +
-                                "PNG (*.png)|*.png|" +
+            saveDialog.Filter = "PNG (*.png)|*.png|" +
                                 "JPG (*.jpg, *.jpeg)|*.jpg; *.jpeg;|" +
+                                "TIFF (*.tiff)|*.tiff|" +
                                 "BMP (*.bmp)|*.bmp|" +
                                 "Все файлы (*.*)|*.*";
             saveDialog.Title = "Сохранить картинку как...";

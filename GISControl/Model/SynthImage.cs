@@ -24,7 +24,6 @@ namespace GISControl.Model
                 colorPalette.SetPalette(palette);
                 int imageWidth = map[0].image.PixelWidth;
                 int imageHeight = map[0].image.PixelWidth;
-                Bitmap indexMap = new Bitmap(imageWidth, imageHeight);
 
                 // Минимальный размер изображение
                 for (int i = 1; i < map.Length; i++)
@@ -35,6 +34,7 @@ namespace GISControl.Model
                         imageWidth = map[i].image.PixelWidth;
                 }
 
+                Bitmap indexMap = new Bitmap(imageWidth, imageHeight);
                 Bitmap[] mapImage = new Bitmap[map.Length];
                 Color[] mapImagePixel = new Color[map.Length];
                 for (int i = 0; i < map.Length; i++)
@@ -60,7 +60,7 @@ namespace GISControl.Model
             }
             catch
             {
-                MessageBox.Show("Произошла внуренняя ошибка. Код ошибки 1", "Ошибка", MessageBoxButton.OK,
+                MessageBox.Show("Произошла внуренняя ошибка расчета", "Ошибка", MessageBoxButton.OK,
                     MessageBoxImage.Error);
                 GC.Collect();
                 GC.WaitForPendingFinalizers();

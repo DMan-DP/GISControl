@@ -205,13 +205,13 @@ namespace GISControl.View
             }
             Microsoft.Win32.SaveFileDialog saveDialog = new Microsoft.Win32.SaveFileDialog();
 
-            saveDialog.Filter = "TIFF (*.tiff)|*.tiff|" +
-                                "PNG (*.png)|*.png|" +
+            saveDialog.Filter = "PNG (*.png)|*.png|" +
                                 "JPG (*.jpg, *.jpeg)|*.jpg; *.jpeg;|" +
+                                "TIFF (*.tiff)|*.tiff|" +
                                 "BMP (*.bmp)|*.bmp|" +
                                 "Все файлы (*.*)|*.*";
             saveDialog.Title = "Сохранить картинку как...";
-            saveDialog.FileName = layer.name + layer.data;
+            saveDialog.FileName = layer.name + Title;
 
             if (saveDialog.ShowDialog() == true)
             {

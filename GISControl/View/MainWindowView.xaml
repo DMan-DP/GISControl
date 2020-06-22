@@ -20,14 +20,16 @@
                   IsTabStop="False">
                 <MenuItem Header="Файл">
                     <MenuItem Header="Создать проект" 
-                              InputGestureText="Ctrl+N" />
+                              InputGestureText="Ctrl+N" 
+                              Click="RemoveAllImageButtonClick"/>
                     <Separator/>
                     <MenuItem Header="Сохранить изображение как..." 
                               InputGestureText="Ctrl+Shift+S"
                               Click="SaveImageAs"/>
                     <Separator/>
                     <MenuItem Header="Выход" 
-                              InputGestureText="Alt+F4"/>
+                              InputGestureText="Alt+F4"
+                              Click="ExitApp"/>
                 </MenuItem>
                 <MenuItem Header="Правка">
                     <MenuItem Header="Цветовая коррекция">

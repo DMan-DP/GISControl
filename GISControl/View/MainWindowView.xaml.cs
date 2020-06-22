@@ -158,7 +158,7 @@ namespace GISControl
             }
         }
 
-        #region Calculate Index
+        #region Synthethis Image
 
         private void OpenSynthImageWindow(SynthImage synthImage)
         {
@@ -168,7 +168,6 @@ namespace GISControl
             if (ListBoxLayers.Items.Count != currenCount)
             ListBoxLayers.SelectedIndex = LayerManager.instance.SelectImage;
         }
-
 
         private void CalcNDVI(object sender, RoutedEventArgs e)
         {
@@ -252,13 +251,13 @@ namespace GISControl
                 MessageBox.Show("Отсуствует изображение", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); return;
             }
             SaveFileDialog saveDialog = new SaveFileDialog();
-            saveDialog.Filter = "TIFF (*.tiff)|*.tiff|" +
-                                "PNG (*.png)|*.png|" +
+            saveDialog.Filter = "PNG (*.png)|*.png|" +
                                 "JPG (*.jpg, *.jpeg)|*.jpg; *.jpeg;|" +
+                                "TIFF (*.tiff)|*.tiff|" +
                                 "BMP (*.bmp)|*.bmp|" +
                                 "Все файлы (*.*)|*.*";
             saveDialog.Title = "Сохранить картинку как...";
-            saveDialog.FileName = LayerManager.instance.layers[LayerManager.instance.SelectImage].name + LayerManager.instance.layers[LayerManager.instance.SelectImage].data;
+            saveDialog.FileName = LayerManager.instance.layers[LayerManager.instance.SelectImage].name;
             if (saveDialog.ShowDialog() == true)
             {
                 try
@@ -280,6 +279,11 @@ namespace GISControl
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
             }
+        }
+
+        private void ExitApp(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
