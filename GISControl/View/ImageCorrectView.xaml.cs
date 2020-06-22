@@ -211,7 +211,7 @@ namespace GISControl.View
                                 "BMP (*.bmp)|*.bmp|" +
                                 "Все файлы (*.*)|*.*";
             saveDialog.Title = "Сохранить картинку как...";
-            saveDialog.FileName = layer.name + Title;
+            saveDialog.FileName = layer.name + " " + Title;
 
             if (saveDialog.ShowDialog() == true)
             {
@@ -225,7 +225,6 @@ namespace GISControl.View
                     }
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
-                    this.Close();
                 }
                 catch
                 {

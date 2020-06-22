@@ -21,7 +21,8 @@ namespace GISControl.Model
         {
             try
             {
-                colorPalette.SetPalette(palette);
+                if (colorPalette != null)
+                    colorPalette.SetPalette(palette);
                 int imageWidth = map[0].image.PixelWidth;
                 int imageHeight = map[0].image.PixelWidth;
 
