@@ -19,8 +19,8 @@ Global
 		{CEDA3405-8369-46AD-B2F0-E8645AB5D505}.Debug|x64.Build.0 = Debug|x64
 		{CEDA3405-8369-46AD-B2F0-E8645AB5D505}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEDA3405-8369-46AD-B2F0-E8645AB5D505}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CEDA3405-8369-46AD-B2F0-E8645AB5D505}.Release|x64.ActiveCfg = Release|Any CPU
-		{CEDA3405-8369-46AD-B2F0-E8645AB5D505}.Release|x64.Build.0 = Release|Any CPU
+		{CEDA3405-8369-46AD-B2F0-E8645AB5D505}.Release|x64.ActiveCfg = Release|x64
+		{CEDA3405-8369-46AD-B2F0-E8645AB5D505}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

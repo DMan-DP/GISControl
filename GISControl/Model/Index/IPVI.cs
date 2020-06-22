@@ -18,12 +18,9 @@ namespace GISControl.Model.Index
             double red = Convert.ToDouble(pixel[1].R) / 255.0; 
             double ipvi;
             
-            if (nir + red == 0)
+            if (nir + red <= 0)
             {
-                if (nir == 0)
-                    ipvi = 0;
-                else
-                    ipvi = nir;
+                ipvi = 0;
             }
             else
             {

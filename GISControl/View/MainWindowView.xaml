@@ -51,10 +51,10 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="Вид">
-                    <MenuItem Header="Очистить главный экран"/>
+                    <MenuItem Header="Очистить главный экран" Click="ClearMainImage"/>
                 </MenuItem>
                 <MenuItem Header="Справка">
-                    <MenuItem Header="О программе"/>
+                    <MenuItem Header="О программе" Click="AboutClick"/>
                 </MenuItem>
             </Menu>
 

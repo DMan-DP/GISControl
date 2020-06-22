@@ -285,5 +285,19 @@ namespace GISControl
         {
             Close();
         }
+
+        private void ClearMainImage(object sender, RoutedEventArgs e)
+        {
+            MainImage.Source = null;
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+
+        private void AboutClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Программа для работы со спутниковыми изображениями GIS Control.\n\n" +
+                            "Данная программа является проектом для защиты бакалавраской работы \n\n" +
+                            "Автор: Лямзин Назар Сергеевич", "О программе GISControl", MessageBoxButton.OK, MessageBoxImage.Question);
+        }
     }
 }

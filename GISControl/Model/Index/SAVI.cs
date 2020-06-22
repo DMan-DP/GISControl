@@ -18,12 +18,9 @@ namespace GISControl.Model.Index
             double nir = Convert.ToDouble(pixel[1].R) / 255.0;
             double savi;
 
-            if (nir + red + coeff == 0)
+            if (nir + red + coeff <= 0)
             {
-                if (nir - red == 0)
-                    savi = 0;
-                else
-                    savi = (nir - red) * (1 + coeff);
+                savi = 0;
             }
             else
             {

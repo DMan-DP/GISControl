@@ -19,12 +19,9 @@ namespace GISControl.Model.Index
             double gemi;
             double E = (2 * (nir * nir - red * red) + 1.5 * nir + 0.5 * red) / 
                        (nir + red + 0.5);
-            if (1 - red == 0)
+            if (1 - red <= 0)
             {
-                if (red - 0.125 == 0)
-                    gemi = E * (1 - 0.25 * E);
-                else
-                    gemi = E * (1 - 0.25 * E) - (red - 0.125);
+                gemi = E * (1 - 0.25 * E);
             }
             else
             {

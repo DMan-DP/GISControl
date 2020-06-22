@@ -20,12 +20,9 @@ namespace GISControl.Model.Index
             double arvi;
             double rb = red - coeff * (red - blue);
 
-            if (nir + rb == 0)
+            if (nir + rb <= 0)
             {
-                if (nir - rb == 0)
-                    arvi = 0;
-                else
-                    arvi = nir - rb;
+                arvi = 0;
             }
             else
             {

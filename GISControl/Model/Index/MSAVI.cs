@@ -18,12 +18,9 @@ namespace GISControl.Model.Index
             double red = Convert.ToDouble(pixel[1].R) / 255.0; double msavi;
             double L = 1 - ((2 * nir + 1 - Math.Sqrt(Math.Pow(2 * nir + 1, 2) - 8 * (nir - red))) / 2);
 
-            if (nir + red + L == 0)
+            if (nir + red + L <= 0)
             {
-                if (nir - red == 0)
-                    msavi = 0;
-                else
-                    msavi = (nir - red) * (1 + L);
+                msavi = 0;
             }
             else
             {
