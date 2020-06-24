@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using GISControl.Model;
-using GISControl.Model.ColorPalette;
 using GISControl.Model.Correct;
-using GISControl.Model.Index;
+using GISControl.Model.MapValue;
 
 namespace GISControl.ViewModel
 {

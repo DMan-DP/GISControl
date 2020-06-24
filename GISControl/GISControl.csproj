@@ -136,12 +136,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\ColorPalette\ColorPalette.cs" />
+    <Compile Include="Model\MapValue\ColorPalette.cs" />
     <Compile Include="Model\Correct\BrightnessCorrect.cs" />
     <Compile Include="Model\Correct\ColorCorrect.cs" />
     <Compile Include="Model\Correct\ContrastCorrect.cs" />
     <Compile Include="Model\Correct\GammaCorrect.cs" />
     <Compile Include="Model\Correct\InvertColorCorrect.cs" />
+    <Compile Include="Model\MapValue\PlotValue.cs" />
     <Compile Include="Model\Help\BitmapConventer.cs" />
     <Compile Include="Model\Help\Singleton.cs" />
     <Compile Include="Model\Index\ARVI.cs" />

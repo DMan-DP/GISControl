@@ -2,15 +2,17 @@
 using System.Drawing;
 using System.Windows;
 using System.Windows.Media.Imaging;
-using GISControl.Model.ColorPalette;
 using GISControl.Model.Help;
+using GISControl.Model.MapValue;
+using GISControl.ModelPalette;
 
 namespace GISControl.Model
 {
     public abstract class SynthImage
     {
         protected double coeff;
-        protected ColorPalette.ColorPalette colorPalette;
+        protected ColorPalette colorPalette;
+        public PlotValue plotValue { get; protected set; }
 
         protected virtual Color GetIndex(Color[] pixel)
         {

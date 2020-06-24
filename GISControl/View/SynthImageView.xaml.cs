@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Drawing.Drawing2D;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using GISControl.Model;
-using GISControl.Model.ColorPalette;
 using GISControl.Model.Index;
+using GISControl.Model.MapValue;
 using GISControl.Model.SynthethisImage;
 using GISControl.ViewModel;
 
@@ -200,7 +200,7 @@ namespace GISControl.View
             {
                 coef = Convert.ToDouble(CoeffValue.Text.Replace(".", ","));
             }
-            catch (Exception exception)
+            catch
             {
                 MessageBox.Show("Не правильно введен коэффициент", "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
@@ -342,7 +342,7 @@ namespace GISControl.View
             this.Close();
         }
 
-        private void SaveImageButtonClick(object sender, RoutedEventArgs e)
+        private void SaveResultButtonClick(object sender, RoutedEventArgs e)
         {
             if (image == null)
             {
@@ -350,12 +350,9 @@ namespace GISControl.View
             }
             Microsoft.Win32.SaveFileDialog saveDialog = new Microsoft.Win32.SaveFileDialog();
 
-            saveDialog.Filter = "PNG (*.png)|*.png|" +
-                                "JPG (*.jpg, *.jpeg)|*.jpg; *.jpeg;|" +
-                                "TIFF (*.tiff)|*.tiff|" +
-                                "BMP (*.bmp)|*.bmp|" +
+            saveDialog.Filter = "TXT (*.txt)|*.txt|" +
                                 "Все файлы (*.*)|*.*";
-            saveDialog.Title = "Сохранить картинку как...";
+            saveDialog.Title = "Сохранить расчет...";
             
             saveDialog.FileName = synthImage.GetType().Name;
 
@@ -363,15 +360,16 @@ namespace GISControl.View
             {
                 try
                 {
-                    BitmapEncoder encoder = new PngBitmapEncoder();
-                    encoder.Frames.Add(BitmapFrame.Create(image));
-                    using (var fileStream = new System.IO.FileStream(saveDialog.FileName, System.IO.FileMode.Create))
+                    using (StreamWriter sw = new StreamWriter(saveDialog.FileName, false, System.Text.Encoding.Default))
                     {
-                        encoder.Save(fileStream);
+                        for (int i = 0; i < 20 ; i++)
+                        {
+                            sw.WriteLine(synthImage.plotValue.values[i,0].ToString() + "\t" + synthImage.plotValue.values[i, 1].ToString());
+                        }
                     }
+
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
-                    this.Close();
                 }
                 catch
                 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using GISControl.ModelPalette;
 
 namespace GISControl.Model.Index
 {
@@ -7,9 +8,10 @@ namespace GISControl.Model.Index
     {
         public GEMI()
         {
-            double[] valuesNDVI = new double[] {0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3,
+            double[] values = new double[] {0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3,
                 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1};
-            colorPalette = new ColorPalette.ColorPalette(valuesNDVI);
+            colorPalette = new MapValue.ColorPalette(values);
+            plotValue = new PlotValue(values);
         }
 
         protected override Color GetIndex(Color[] pixel)
@@ -27,6 +29,8 @@ namespace GISControl.Model.Index
             {
                 gemi = E * (1 - 0.25 * E) - (red - 0.125) / (1 - red);
             }
+
+            plotValue.SetIndexValue(gemi);
             return colorPalette.GetColorPallete(gemi);
         }
     }

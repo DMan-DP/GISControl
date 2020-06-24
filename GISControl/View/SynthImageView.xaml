@@ -159,12 +159,12 @@
                         FontWeight="SemiBold"
                         Background="#FF37474F" Foreground="White"
                         Click="SaveLayerButtonClick"/>
-                <Button Content="Сохранить как..."
+                <Button Content="Сохранить расчет"
                         FontWeight="SemiBold"
                         Height="32" Margin="16,0,16,44"
                         VerticalAlignment="Bottom" 
                         BorderBrush="#FF62727B"
-                        Click="SaveImageButtonClick"/>
+                        Click="SaveResultButtonClick"/>
                 <Button Content="Расчет" 
                         Height="32" Margin="16,0,16,80"
                         VerticalAlignment="Bottom"
