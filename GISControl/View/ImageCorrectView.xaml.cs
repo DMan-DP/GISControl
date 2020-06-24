@@ -39,7 +39,7 @@ namespace GISControl.View
             else if (colorCorrect.GetType() == typeof(GammaCorrect))
             {
               
-                Slider.Minimum = 0.1; Slider.Maximum = 5; Slider.Value = 1; Slider.LargeChange = 0.1;
+                Slider.Minimum = 0.1; Slider.Maximum = 5; Slider.Value = 0; Slider.LargeChange = 0.1;
                 this.Title = "Гамма коррекция";
                 ImageCorrectTitle.Text = "Гамма";
             }

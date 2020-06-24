@@ -37,12 +37,12 @@
                            KeyDown="SliderValueTextChanged"/>
                 <Slider x:Name="Slider"
                         VerticalAlignment="Top"
-                        TickFrequency="0.1"
+                        TickFrequency="0.01"
                         Orientation="Horizontal"
                         Minimum="0" Maximum="100" Value="50"
                         Margin="16,16,64,0"
                         Height="32"
-                        ValueChanged="SliderValueChanged" LargeChange="0.1"/>
+                        ValueChanged="SliderValueChanged" LargeChange="0.1" SmallChange="0.01"/>
             </Grid>
             <ProgressBar DockPanel.Dock="Top"
                          x:Name="CorrectProgressBar"
