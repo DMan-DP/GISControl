@@ -42,7 +42,7 @@
                         Minimum="0" Maximum="100" Value="50"
                         Margin="16,16,64,0"
                         Height="32"
-                        ValueChanged="SliderValueChanged"/>
+                        ValueChanged="SliderValueChanged" LargeChange="0.1"/>
             </Grid>
             <ProgressBar DockPanel.Dock="Top"
                          x:Name="CorrectProgressBar"

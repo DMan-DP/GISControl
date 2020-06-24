@@ -28,18 +28,18 @@ namespace GISControl.View
             {
                 this.Title = "Яркость";
                 ImageCorrectTitle.Text = "Яркость";
-                Slider.Minimum = -255; Slider.Maximum = 255; Slider.Value = 0; Slider.TickFrequency = 1;
+                Slider.Minimum = -255; Slider.Maximum = 255; Slider.Value = 0; Slider.LargeChange = 5;
             }
-            if (colorCorrect.GetType() == typeof(ContrastCorrect))
+            else if (colorCorrect.GetType() == typeof(ContrastCorrect))
             {
-                Slider.Minimum = -100; Slider.Maximum = 100; Slider.Value = 0; Slider.TickFrequency = 1;
+                Slider.Minimum = -100; Slider.Maximum = 100; Slider.Value = 0; Slider.LargeChange = 5;
                 this.Title = "Контрастность";
                 ImageCorrectTitle.Text = "Контрастность";
             }
             else if (colorCorrect.GetType() == typeof(GammaCorrect))
             {
               
-                Slider.Minimum = 0.1; Slider.Maximum = 5; Slider.Value = 1; Slider.TickFrequency = 0.1;
+                Slider.Minimum = 0.1; Slider.Maximum = 5; Slider.Value = 1; Slider.LargeChange = 0.1;
                 this.Title = "Гамма коррекция";
                 ImageCorrectTitle.Text = "Гамма";
             }
