@@ -202,7 +202,6 @@
                     <ComboBoxItem Content="Стандарт (Зеленый)" x:Name="StandartPalette" IsSelected="True"/>
                     <ComboBoxItem Content="Радуга" x:Name="RainbowPalette"/>
                     <ComboBoxItem Content="Красно-синий" x:Name="RedBluePalette"/>
-                    <ComboBoxItem Content="Радуга (непрерывный)" x:Name="RainbowAnalogPalette"/>
                 </ComboBox>
                 <Button x:Name="SaveResButton"
                         Content="Сохранить расчет"

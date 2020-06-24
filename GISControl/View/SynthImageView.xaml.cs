@@ -240,31 +240,7 @@ namespace GISControl.View
                 }
             }
 
-            Palette palette;
-            switch (PaletteComboBox.SelectedIndex)
-            {
-                case 0:
-                    palette = Palette.Green;
-                    break;
-                case 1:
-                    palette = Palette.Rainbow;
-                    break;
-                case 2:
-                    palette = Palette.RedBlue;
-                    break;
-                case 3:
-                    palette = Palette.Analog;
-                    break;
-                default:
-                    palette = Palette.Green;
-                    break;
-            }
-
-            if (palette == Palette.Analog && (synthImage.GetType() == typeof(NDVI) || 
-                                              synthImage.GetType() == typeof(SAVI) ||
-                                              synthImage.GetType() == typeof(MSAVI) ||
-                                              synthImage.GetType() == typeof(ARVI)))
-               palette = Palette.Analog2;
+            Palette palette = (Palette)PaletteComboBox.SelectedIndex;
 
             try
             {
