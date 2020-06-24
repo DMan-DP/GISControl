@@ -30,7 +30,6 @@ namespace GISControl
         private double horizontalOffset = 1;
         private double verticalOffset = 1;
 
-
         private void ImageWheelScrol(object sender, MouseWheelEventArgs e)
         {
             if (MainImage.IsMouseOver)
@@ -164,7 +163,7 @@ namespace GISControl
         {
             SynthImageView window = new SynthImageView(synthImage);
             var currenCount = ListBoxLayers.Items.Count;
-            window.ShowDialog();
+            window.Show();
             if (ListBoxLayers.Items.Count != currenCount)
             ListBoxLayers.SelectedIndex = LayerManager.instance.SelectImage;
         }
@@ -217,7 +216,7 @@ namespace GISControl
             }
             ImageCorrectView window = new ImageCorrectView(LayerManager.instance.layers[LayerManager.instance.SelectImage], correct);
             var currenCount = ListBoxLayers.Items.Count;
-            window.ShowDialog();
+            window.Show();
             if (ListBoxLayers.Items.Count != currenCount)
                 ListBoxLayers.SelectedIndex = LayerManager.instance.SelectImage;
         }
