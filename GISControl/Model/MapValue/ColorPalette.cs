@@ -14,11 +14,12 @@ namespace GISControl.Model.MapValue
             public Color color;
         }
 
-        private ImagePalette[] colors = new ImagePalette[20];
+        private static int maxCount = 21;
+        private ImagePalette[] colors = new ImagePalette[maxCount];
 
         public ColorPalette(double[] values, Palette palette = Palette.Rainbow)
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < maxCount; i++)
             {
                 colors[i].value = values[i];
                 colors[i].color = Color.Black;
@@ -79,25 +80,27 @@ namespace GISControl.Model.MapValue
 
             if (palette == Palette.RedBlue)
             {
-                colors[0].color = Color.FromArgb(88, 36, 217);
-                colors[1].color = Color.FromArgb(96, 37, 213);
-                colors[2].color = Color.FromArgb(106, 36, 209);
-                colors[3].color = Color.FromArgb(111, 36, 201);
-                colors[4].color = Color.FromArgb(124, 36, 197);
-                colors[5].color = Color.FromArgb(136, 37, 192);
-                colors[6].color = Color.FromArgb(142, 38, 181);
-                colors[7].color = Color.FromArgb(156, 37, 174);
-                colors[8].color = Color.FromArgb(166, 36, 162);
-                colors[9].color = Color.FromArgb(175, 34, 152);
-                colors[10].color = Color.FromArgb(185, 35, 139);
-                colors[11].color = Color.FromArgb(183, 33, 123);
-                colors[12].color = Color.FromArgb(192, 32, 113);
-                colors[13].color = Color.FromArgb(194, 31, 99);
-                colors[14].color = Color.FromArgb(200, 29, 88);
-                colors[15].color = Color.FromArgb(207, 29, 78);
-                colors[16].color = Color.FromArgb(209, 29, 70);
-                colors[17].color = Color.FromArgb(212, 28, 61);
-                colors[18].color = Color.FromArgb(217, 26, 23);
+                
+                colors[0].color = Color.FromArgb(60, 25, 200);
+                colors[1].color = Color.FromArgb(88, 36, 217);
+                colors[2].color = Color.FromArgb(96, 37, 213);
+                colors[3].color = Color.FromArgb(106, 36, 209);
+                colors[4].color = Color.FromArgb(111, 36, 201);
+                colors[5].color = Color.FromArgb(124, 36, 197);
+                colors[6].color = Color.FromArgb(136, 37, 192);
+                colors[7].color = Color.FromArgb(142, 38, 181);
+                colors[8].color = Color.FromArgb(156, 37, 174);
+                colors[9].color = Color.FromArgb(166, 36, 162);
+                colors[10].color = Color.FromArgb(175, 34, 152);
+                colors[11].color = Color.FromArgb(185, 35, 139);
+                colors[12].color = Color.FromArgb(183, 33, 123);
+                colors[13].color = Color.FromArgb(192, 32, 113);
+                colors[14].color = Color.FromArgb(194, 31, 99);
+                colors[15].color = Color.FromArgb(200, 29, 88);
+                colors[16].color = Color.FromArgb(207, 29, 78);
+                colors[17].color = Color.FromArgb(209, 29, 70);
+                colors[18].color = Color.FromArgb(212, 28, 61);
+                colors[19].color = Color.FromArgb(217, 26, 23);
             }
         }
 
@@ -120,7 +123,9 @@ namespace GISControl.Model.MapValue
             else if (value >= colors[14].value && value < colors[15].value) return colors[14].color;
             else if (value >= colors[15].value && value < colors[16].value) return colors[15].color;
             else if (value >= colors[16].value && value < colors[17].value) return colors[16].color;
-            else if (value >= colors[17].value && value <= colors[18].value) return colors[17].color;
+            else if (value >= colors[17].value && value < colors[18].value) return colors[17].color;
+            else if (value >= colors[18].value && value < colors[19].value) return colors[18].color;
+            else if (value >= colors[19].value && value < colors[20].value) return colors[19].color;
             else return Color.Black;
         }
     }
