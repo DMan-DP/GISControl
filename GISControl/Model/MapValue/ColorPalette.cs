@@ -125,7 +125,7 @@ namespace GISControl.Model.MapValue
             else if (value >= colors[16].value && value < colors[17].value) return colors[16].color;
             else if (value >= colors[17].value && value < colors[18].value) return colors[17].color;
             else if (value >= colors[18].value && value < colors[19].value) return colors[18].color;
-            else if (value >= colors[19].value && value < colors[20].value) return colors[19].color;
+            else if (value >= colors[19].value && value <= colors[20].value) return colors[19].color;
             else return Color.Black;
         }
     }

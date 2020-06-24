@@ -4,11 +4,11 @@ namespace GISControl.ModelPalette
 {
     public class PlotValue
     {
-        public double[,] values { get; private set; } = new double[20,2];
+        public double[,] values { get; private set; } = new double[21,2];
 
         public PlotValue(double[] values)
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 21; i++)
             {
                 this.values[i,0] = values[i];
                 this.values[i, 1] = 0;
@@ -34,7 +34,9 @@ namespace GISControl.ModelPalette
             else if (value >= values[14,0] && value < values[15,0]) ++values[14,1];
             else if (value >= values[15,0] && value < values[16,0]) ++values[15,1];
             else if (value >= values[16,0] && value < values[17,0]) ++values[16,1];
-            else if (value >= values[17,0] && value <= values[18,0]) ++values[17,1];
+            else if (value >= values[17,0] && value < values[18,0]) ++values[17,1];
+            else if (value >= values[18, 0] && value < values[19, 0]) ++values[18, 1];
+            else if (value >= values[19, 0] && value <= values[20, 0]) ++values[19, 1];
         }
     }
 }
