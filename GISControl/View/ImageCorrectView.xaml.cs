@@ -177,8 +177,7 @@ namespace GISControl.View
             catch (OperationCanceledException)
             {
                 image = null;
-                MessageBox.Show("Произошла внуренняя ошибка. Код ошибки 1", "Ошибка", MessageBoxButton.OK,
-                    MessageBoxImage.Error);
+                MessageBox.Show("Произошла внуренняя ошибка. Код ошибки 1", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             GC.Collect();
@@ -190,7 +189,7 @@ namespace GISControl.View
         {
             if (image == null)
             {
-                MessageBox.Show("Ошибка сохранения файла", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); return;
+                MessageBox.Show("Ошибка сохранения файла", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Stop); return;
             }
 
             string imageName = layer.name;

@@ -91,6 +91,7 @@ namespace GISControl.View
                 CoeffName.Visibility = Visibility.Hidden;
                 CoeffValue.Visibility = Visibility.Hidden;
                 SaveResButton.Visibility = Visibility.Hidden;
+                PaletteComboBox.Visibility = Visibility.Hidden;
 
                 BandAButton.Content = "R";
                 BandAButton.Background = new SolidColorBrush(Color.FromRgb(218, 124, 124));

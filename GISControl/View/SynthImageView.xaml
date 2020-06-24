@@ -196,9 +196,9 @@
             </ScrollViewer>
             <Grid Row="1" Background="LightGray">
                 <ComboBox x:Name="PaletteComboBox"
-                              HorizontalAlignment="Left"
-                              VerticalAlignment="Top" Height="20" Width="116"
-                              Margin="16,10,0,0">
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top" Height="20" Width="116"
+                          Margin="16,10,0,0">
                     <ComboBoxItem Content="Стандарт" x:Name="StandartPalette" IsSelected="True"/>
                     <ComboBoxItem Content="Радуга" x:Name="RainbowPalette"/>
                     <ComboBoxItem Content="Красно-синий" x:Name="RedBluePalette"/>
