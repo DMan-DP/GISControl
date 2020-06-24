@@ -270,7 +270,7 @@ namespace GISControl
                     }
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
-                    this.Close();
+                    MessageBox.Show("Успешно сохранено", "Успешно", MessageBoxButton.OK, MessageBoxImage.None);
                 }
                 catch
                 {

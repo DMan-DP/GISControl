@@ -90,6 +90,7 @@ namespace GISControl.View
                 BandBButton.Visibility = Visibility.Hidden;
                 CoeffName.Visibility = Visibility.Hidden;
                 CoeffValue.Visibility = Visibility.Hidden;
+                SaveResButton.Visibility = Visibility.Hidden;
 
                 BandAButton.Content = "R";
                 BandAButton.Background = new SolidColorBrush(Color.FromRgb(218, 124, 124));
@@ -279,7 +280,7 @@ namespace GISControl.View
             if (LayerManager.instance.SelectImage == -1)
             {
                 MessageBox.Show("Необходимо выбрать изображения", "Ошибка",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
             }
 
@@ -346,7 +347,7 @@ namespace GISControl.View
         {
             if (image == null)
             {
-                MessageBox.Show("Ошибка сохранения файла", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); return;
+                MessageBox.Show("Ошибка сохранения файла", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Stop); return;
             }
             Microsoft.Win32.SaveFileDialog saveDialog = new Microsoft.Win32.SaveFileDialog();
 
@@ -370,6 +371,47 @@ namespace GISControl.View
 
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
+                    MessageBox.Show("Успешно сохранено", "Успешно", MessageBoxButton.OK, MessageBoxImage.None);
+                }
+                catch
+                {
+                    MessageBox.Show("Невозможно сохранить изображение", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+        }
+
+        private void SaveImageButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (image == null)
+            {
+                MessageBox.Show("Ошибка сохранения файла", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Stop); return;
+            }
+            Microsoft.Win32.SaveFileDialog saveDialog = new Microsoft.Win32.SaveFileDialog();
+
+            saveDialog.Filter = "PNG (*.png)|*.png|" +
+                                "JPG (*.jpg, *.jpeg)|*.jpg; *.jpeg;|" +
+                                "TIFF (*.tiff)|*.tiff|" +
+                                "BMP (*.bmp)|*.bmp|" +
+                                "Все файлы (*.*)|*.*";
+            saveDialog.Title = "Сохранить картинку как...";
+            saveDialog.FileName = synthImage.GetType().Name;
+
+            if (saveDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    BitmapEncoder encoder = new PngBitmapEncoder();
+                    encoder.Frames.Add(BitmapFrame.Create(image));
+                    using (var fileStream = new FileStream(saveDialog.FileName, System.IO.FileMode.Create))
+                    {
+                        encoder.Save(fileStream);
+                    }
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+
+                    MessageBox.Show("Успешно сохранено", "Успешно", MessageBoxButton.OK, MessageBoxImage.None);
                 }
                 catch
                 {

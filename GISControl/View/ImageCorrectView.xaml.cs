@@ -221,7 +221,7 @@ namespace GISControl.View
         {
             if (image == null)
             {
-                MessageBox.Show("Ошибка сохранения файла", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); return;
+                MessageBox.Show("Ошибка сохранения файла", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Stop); return;
             }
             Microsoft.Win32.SaveFileDialog saveDialog = new Microsoft.Win32.SaveFileDialog();
 
@@ -245,6 +245,7 @@ namespace GISControl.View
                     }
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
+                    MessageBox.Show("Успешно сохранено", "Успешно", MessageBoxButton.OK, MessageBoxImage.None);
                 }
                 catch
                 {

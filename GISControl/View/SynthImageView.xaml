@@ -159,12 +159,12 @@
                         FontWeight="SemiBold"
                         Background="#FF37474F" Foreground="White"
                         Click="SaveLayerButtonClick"/>
-                <Button Content="Сохранить расчет"
+                <Button Content="Сохранить изображение"
                         FontWeight="SemiBold"
                         Height="32" Margin="16,0,16,44"
                         VerticalAlignment="Bottom" 
                         BorderBrush="#FF62727B"
-                        Click="SaveResultButtonClick"/>
+                        Click="SaveImageButtonClick"/>
                 <Button Content="Расчет" 
                         Height="32" Margin="16,0,16,80"
                         VerticalAlignment="Bottom"
@@ -184,26 +184,33 @@
                           HorizontalScrollBarVisibility="Auto" 
                           VerticalScrollBarVisibility="Auto"
                           Grid.Row="0">
-                    <Viewbox Name="ViewBox"
+                <Viewbox Name="ViewBox"
                              MouseWheel="ImageWheelScrol"
                              MouseMove="NavigatorMouseMove"
                              MouseLeftButtonDown="NavigatorMouseLeftButtonDown"
                              MouseLeftButtonUp="NavigarorLeftButtonUp">
-                        <Image x:Name="MainImage"
+                    <Image x:Name="MainImage"
                                Width="Auto"
                                Height="320"/>
-                    </Viewbox>
-                </ScrollViewer>
-                <Grid Row="1" Background="LightGray">
-                    <ComboBox x:Name="PaletteComboBox"
+                </Viewbox>
+            </ScrollViewer>
+            <Grid Row="1" Background="LightGray">
+                <ComboBox x:Name="PaletteComboBox"
                               HorizontalAlignment="Left"
                               VerticalAlignment="Top" Height="20" Width="116"
                               Margin="16,10,0,0">
-                        <ComboBoxItem Content="Стандарт" x:Name="StandartPalette" IsSelected="True"/>
-                        <ComboBoxItem Content="Радуга" x:Name="RainbowPalette"/>
-                        <ComboBoxItem Content="Красно-синий" x:Name="RedBluePalette"/>
-                    </ComboBox>
-                    <ProgressBar x:Name="CorrectProgressBar"
+                    <ComboBoxItem Content="Стандарт" x:Name="StandartPalette" IsSelected="True"/>
+                    <ComboBoxItem Content="Радуга" x:Name="RainbowPalette"/>
+                    <ComboBoxItem Content="Красно-синий" x:Name="RedBluePalette"/>
+                </ComboBox>
+                <Button x:Name="SaveResButton"
+                        Content="Сохранить расчет"
+                        FontWeight="SemiBold"
+                        Height="20"
+                        VerticalAlignment="Bottom" 
+                        BorderBrush="#FF62727B"
+                        Click="SaveResultButtonClick" Margin="147,0,226,10"/>
+                <ProgressBar x:Name="CorrectProgressBar"
                                  Height="20" Width="164"
                                  VerticalAlignment="Bottom"
                                  HorizontalContentAlignment="Left" Margin="362,0,16,10"/>

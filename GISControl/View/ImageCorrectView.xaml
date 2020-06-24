@@ -7,7 +7,7 @@
         Title="ImageCorrectView" Height="450" Width="800"
         WindowStyle="SingleBorderWindow"
         ResizeMode="CanResizeWithGrip"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="Manual">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="256"/>

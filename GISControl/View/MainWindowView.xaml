@@ -5,7 +5,8 @@
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  Title="GISControl" 
                  MinHeight="520" MinWidth="840"
-                 Height="520" Width="840">
+                 Height="520" Width="840"
+                 WindowStartupLocation="Manual">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
