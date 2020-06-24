@@ -1,11 +1,14 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using System.Windows.Controls;
 
 namespace GISControl.Model.MapValue
 {
-    public enum Palette { Green, Rainbow, RedBlue }
+    public enum Palette { Green, Rainbow, RedBlue, Analog, Analog2 }
 
     public class ColorPalette
-    { 
+    {
+        private Palette selectPalette;
         private struct ImagePalette
         {
             public double value;
@@ -27,6 +30,7 @@ namespace GISControl.Model.MapValue
 
         public void SetPalette(Palette palette)
         {
+            selectPalette = palette;
             if (palette == Palette.Green)
             {
                 colors[0].color = Color.FromArgb(4, 18, 60);
@@ -101,6 +105,20 @@ namespace GISControl.Model.MapValue
 
         public Color GetColorPallete(double value)
         {
+            if (selectPalette == Palette.Analog || selectPalette == Palette.Analog2)
+            {
+                int a;
+                if (selectPalette == Palette.Analog)
+                    a = Convert.ToByte(value) * 255;
+                else
+                    a = Convert.ToByte(value + 1) * 127;
+
+                if (a > 255) a = 255;
+                else if (a < 0) a = 0;
+
+                return Color.FromArgb(a, a, 255 - a);
+            }
+
             if (value >= colors[0].value && value < colors[1].value) return colors[0].color;
             else if (value >= colors[1].value && value < colors[2].value) return colors[1].color;
             else if (value >= colors[2].value && value < colors[3].value) return colors[2].color;

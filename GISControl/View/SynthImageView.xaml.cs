@@ -252,10 +252,19 @@ namespace GISControl.View
                 case 2:
                     palette = Palette.RedBlue;
                     break;
+                case 3:
+                    palette = Palette.Analog;
+                    break;
                 default:
                     palette = Palette.Green;
                     break;
             }
+
+            if (palette == Palette.Analog && (synthImage.GetType() == typeof(NDVI) || 
+                                              synthImage.GetType() == typeof(SAVI) ||
+                                              synthImage.GetType() == typeof(MSAVI) ||
+                                              synthImage.GetType() == typeof(ARVI)))
+               palette = Palette.Analog2;
 
             try
             {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using GISControl.Model.MapValue;
 using GISControl.ModelPalette;
 
 namespace GISControl.Model.Index
