@@ -33,7 +33,7 @@
                            TextAlignment="Right"
                            VerticalAlignment="Top"
                            DockPanel.Dock="Top"
-                           Margin="0,16,10,0" Width="49"
+                           Margin="0,16,10,0" Width="48"
                            KeyDown="SliderValueTextChanged"/>
                 <Slider x:Name="Slider"
                         VerticalAlignment="Top"
