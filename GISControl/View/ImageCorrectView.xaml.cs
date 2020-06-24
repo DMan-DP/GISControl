@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -29,19 +30,18 @@ namespace GISControl.View
                 ImageCorrectTitle.Text = "Яркость";
                 Slider.Minimum = -255; Slider.Maximum = 255; Slider.Value = 0; Slider.TickFrequency = 1;
             }
-            else if (colorCorrect.GetType() == typeof(ContrastCorrect) || colorCorrect.GetType() == typeof(GammaCorrect))
+            if (colorCorrect.GetType() == typeof(ContrastCorrect))
             {
-                Slider.Minimum = 0; Slider.Maximum = 5; Slider.Value = 1; Slider.TickFrequency = 0.1;
-                if (colorCorrect.GetType() == typeof(ContrastCorrect))
-                {
-                    this.Title = "Контрастность";
-                    ImageCorrectTitle.Text = "Контрастность";
-                }
-                else
-                {
-                    this.Title = "Гамма коррекция";
-                    ImageCorrectTitle.Text = "Гамма";
-                }
+                Slider.Minimum = -100; Slider.Maximum = 100; Slider.Value = 0; Slider.TickFrequency = 1;
+                this.Title = "Контрастность";
+                ImageCorrectTitle.Text = "Контрастность";
+            }
+            else if (colorCorrect.GetType() == typeof(GammaCorrect))
+            {
+              
+                Slider.Minimum = 0.1; Slider.Maximum = 5; Slider.Value = 1; Slider.TickFrequency = 0.1;
+                this.Title = "Гамма коррекция";
+                ImageCorrectTitle.Text = "Гамма";
             }
             else if (colorCorrect.GetType() == typeof(InvertColorCorrect))
             {
@@ -143,6 +143,26 @@ namespace GISControl.View
             else
             {
                 SliderValue.Text = Math.Round(Slider.Value, 1).ToString();
+            }
+        }
+        private void SliderValueTextChanged(object sender, KeyEventArgs keyEventArgs)
+        {
+            if (keyEventArgs.Key == Key.Enter)
+            {
+                double value;
+                try
+                {
+                    value = Convert.ToDouble(SliderValue.Text.Replace(".", ","));
+                    if (value >= Slider.Minimum && value <= Slider.Maximum)
+                    {
+                        Slider.Value = value;
+                    }
+                }
+                catch
+                {
+                    SliderValue.Text = Slider.Value.ToString();
+                    return;
+                }
             }
         }
 

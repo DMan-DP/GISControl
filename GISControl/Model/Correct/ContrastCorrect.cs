@@ -10,9 +10,11 @@ namespace GISControl.Model.Correct
     {
         protected override byte GetCorrectPixel(byte pixelColor, double value)
         {
+            double contrast = (100.0 + value) / 255.0;
+            contrast = contrast * contrast;
             double color = Convert.ToDouble(pixelColor) / 255.0;
             color -= 0.5;
-            color *= value;
+            color *= contrast;
             color += 0.5;
             color *= 255;
 
